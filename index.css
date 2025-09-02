@@ -168,7 +168,6 @@ body {
   top: 5px;
   right: 5px;
   font-weight: bold;
-  margin-bottom: ;
 }
 
 .today {
@@ -191,13 +190,15 @@ body {
 }
 
 .jungmo {
-  background: #ff595e;
+  background: #7134d3;
 }
 .climbing {
-  background: #1982c4;
+  background: #d7b5ff;
+  color: black;
 }
 .mountain {
-  background: #6a4c93;
+  background: #afc4ff;
+  color: black;
 }
 /* 공통 툴팁 */
 #tooltip {
