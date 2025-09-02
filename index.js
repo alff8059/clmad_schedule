@@ -87,7 +87,13 @@ function renderCalendar() {
 
     dayEvents.forEach((e) => {
       const ev = document.createElement("div");
-      ev.textContent = e.title;
+      if (isMobile()) {
+        if (e.category == "jungmo") ev.textContent = "정모";
+        else if (e.category == "climbing") ev.textContent = "클밍";
+        else if (e.category == "mountain") ev.textContent = "등산";
+      } else {
+        ev.textContent = e.title;
+      }
       ev.classList.add("event", e.category);
       attachEvent(ev, e);
       div.appendChild(ev);

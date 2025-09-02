@@ -172,9 +172,6 @@ body {
 
 .today {
   background: #ffeabc;
-  /* color: white; */
-  /* border-radius: 50%; */
-  /* padding: 5px 10px; */
 }
 
 .event {
@@ -183,7 +180,7 @@ body {
   height: auto;
   padding: 10px;
   border-radius: 25px;
-  font-size: 12px;
+  font-size: 9.5pt;
   color: white;
   cursor: pointer;
   max-width: 55px;
@@ -244,4 +241,14 @@ body {
   border: 1px solid black;
   padding: 10px;
   cursor: pointer;
+}
+
+/* 화면 너비가 768px 이하 → 모바일 전용 */
+@media (max-width: 768px) {
+  .event {
+    padding: 8px;
+  }
+  .days > div {
+    padding-top: 20px;
+  }
 }
