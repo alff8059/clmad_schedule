@@ -180,7 +180,7 @@ body {
   height: auto;
   padding: 10px;
   border-radius: 25px;
-  font-size: 9.5pt;
+  font-size: 9pt;
   color: white;
   cursor: pointer;
   max-width: 55px;
@@ -250,5 +250,6 @@ body {
   }
   .days > div {
     padding-top: 20px;
+    min-height: 80px; /* 요일칸은 날짜칸보다 얕게 */
   }
 }
