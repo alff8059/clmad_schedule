@@ -246,7 +246,7 @@ body {
 /* 화면 너비가 768px 이하 → 모바일 전용 */
 @media (max-width: 768px) {
   .event {
-    padding: 8px;
+    padding: 6px;
   }
   .days > div {
     padding-top: 20px;
