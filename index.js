@@ -60,20 +60,30 @@ function renderCalendar() {
       div.classList.add("today");
     }
 
+    const dayStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(
+      i
+    ).padStart(2, "0")}`;
+    const dayEvents = events.filter((e) => e.date === dayStr);
+
     // 요일 계산 (0=일요일, 6=토요일)
     const dayOfWeek = new Date(year, month, i).getDay();
     if (dayOfWeek === 0) {
       div.classList.add("sunday");
     } else if (dayOfWeek === 6) {
       div.classList.add("saturday");
+    } else if (dayOfWeek === 2 || dayOfWeek === 4) {
+      const jamongGroot = {
+        title: "아이엠 그루트!",
+        start: "19:00",
+        end: "21:00",
+        author: "자몽",
+        place: "그루트 클라이밍",
+        category: "climbing",
+      };
+      dayEvents.push(jamongGroot);
     }
 
     div.appendChild(span);
-
-    const dayStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(
-      i
-    ).padStart(2, "0")}`;
-    const dayEvents = events.filter((e) => e.date === dayStr);
 
     dayEvents.forEach((e) => {
       const ev = document.createElement("div");
