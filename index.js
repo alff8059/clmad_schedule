@@ -73,7 +73,7 @@ function renderCalendar() {
       div.classList.add("saturday");
     } else if (dayOfWeek === 2 || dayOfWeek === 4) {
       const jamongGroot = {
-        title: "아이엠 그루트!",
+        title: "아이엠 그루트!🪵",
         start: "19:00",
         end: "21:00",
         author: "자몽",
