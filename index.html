@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 달력</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="calendar">
+      <div class="calendar-header">
+        <div id="prev" class="monthBtn">&lt;</div>
+        <div>
+          <h1 id="month-number"></h1>
+          <h2 id="month-name"></h2>
+        </div>
+        <div id="next" class="monthBtn">&gt;</div>
+      </div>
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="days" id="days"></div>
+    </div>
+
+    <!-- 전역 툴팁 -->
+    <div id="tooltip" class="tooltip-global"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

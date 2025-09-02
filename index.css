@@ -1,0 +1,171 @@
+body {
+  font-family: "Pretendard", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.calendar {
+  width: 720px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h1 {
+  font-size: 64px;
+  margin: 0;
+  color: #002c77;
+}
+
+.calendar-header h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: normal;
+  color: #002c77;
+}
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* 요일 + 날짜 칸 공통 */
+.weekdays > div,
+.days > div {
+  border: 1px solid orange;
+  position: relative;
+  padding: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.days > div {
+  border: 1px solid orange;
+  min-height: 120px; /* 요일칸은 날짜칸보다 얕게 */
+  position: relative;
+  padding: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+/* ==== 외곽선 제거 규칙 ==== */
+
+/* 맨 윗줄 (요일 전체) → 위쪽 border 제거 */
+.weekdays > div {
+  border-top: none;
+}
+
+/* 요일줄 맨 왼쪽/오른쪽 border 제거 */
+.weekdays > div:first-child {
+  border-left: none;
+}
+.weekdays > div:last-child {
+  border-right: none;
+}
+
+/* 날짜칸 맨 아랫줄 → 아래쪽 border 제거 */
+.days > div:nth-last-child(-n + 7) {
+  border-bottom: none;
+}
+
+/* 날짜칸 왼쪽 열 → 왼쪽 border 제거 */
+.days > div:nth-child(7n + 1) {
+  border-left: none;
+}
+
+/* 날짜칸 오른쪽 열 → 오른쪽 border 제거 */
+.days > div:nth-child(7n) {
+  border-right: none;
+}
+
+.day-number {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-weight: bold;
+}
+
+.today {
+  background: #002c77;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+}
+
+.event {
+  margin-top: 10px; /* 간격만 */
+  display: inline-block;
+  height: auto;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+}
+
+.jungmo {
+  background: #ff595e;
+}
+.climbing {
+  background: #1982c4;
+}
+.mountain {
+  background: #6a4c93;
+}
+/* 공통 툴팁 */
+#tooltip {
+  position: absolute;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #222;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+  z-index: 999;
+  max-width: 180px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 꼬리 */
+#tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+}
+
+/* 위쪽에 뜰 때 (화살표 아래로) */
+#tooltip[data-arrow="down"]::after {
+  top: 100%;
+  border-top-color: #333; /* 테두리색 */
+}
+
+/* 아래쪽에 뜰 때 (화살표 위로) */
+#tooltip[data-arrow="up"]::after {
+  bottom: 100%;
+  border-bottom-color: #333;
+}
+.monthBtn {
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
