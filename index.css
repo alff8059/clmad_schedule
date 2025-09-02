@@ -212,7 +212,8 @@ body {
   transform: translateX(-50%);
   transition: opacity 0.2s ease;
   z-index: 999;
-  max-width: 180px;
+  max-width: 180px; /* max-width 제거 */
+  white-space: nowrap; /* 줄바꿈 방지 */
   text-align: center;
   font-weight: bold;
 }

@@ -138,19 +138,33 @@ function showTooltip(evElement, e) {
   }
 
   const rect = evElement.getBoundingClientRect();
-  const tooltipHeight = 60; // 대략 높이
+  const tooltipHeight = 60;
   const margin = 40;
 
   let top = rect.top - tooltipHeight - margin + window.scrollY;
-  let arrowDirection = "down"; // 기본 위로 뜨는 경우
+  let arrowDirection = "down";
 
-  // 화면 위로 잘릴 경우 → 아래로 띄움
   if (top < window.scrollY) {
     top = rect.bottom + margin + window.scrollY;
     arrowDirection = "up";
   }
 
-  tooltip.style.left = rect.left + rect.width / 2 + "px";
+  // 기준 좌표 (가운데 정렬)
+  let left = rect.left + rect.width / 2;
+
+  // 🔹 요일 계산 (0=일요일, 6=토요일)
+  const dayOfWeek = new Date(e.date).getDay();
+  if (isMobile()) {
+    if (dayOfWeek === 0) {
+      // 일요일 → 오른쪽으로 15px 당기기
+      left += 15;
+    } else if (dayOfWeek === 6) {
+      // 토요일 → 왼쪽으로 15px 당기기
+      left -= 15;
+    }
+  }
+
+  tooltip.style.left = left + "px";
   tooltip.style.top = top + "px";
   tooltip.setAttribute("data-arrow", arrowDirection);
   tooltip.style.opacity = 1;
