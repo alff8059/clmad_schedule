@@ -57,7 +57,7 @@ function renderCalendar() {
       month === new Date().getMonth() &&
       year === new Date().getFullYear()
     ) {
-      span.classList.add("today");
+      div.classList.add("today");
     }
 
     // 요일 계산 (0=일요일, 6=토요일)
